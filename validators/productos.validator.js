@@ -6,16 +6,13 @@ const validateCreateProduct = [
         .isString().withMessage("Title should be string"),
     body("price")
         .exists().withMessage("Price is required")
-        .isString().withMessage("Price should be string"),
+        .isNumeric().withMessage("Price should be numeric"),
     body("description")
         .exists().withMessage("Description is required")
         .isString().withMessage("Description should be string"),
     body("image")
         .exists().withMessage("Image is required")
-        .isString().withMessage("Image should be string"),
-    body("isActive")
-        .exists().withMessage("isActive is required")
-        .isBoolean({ strict: true }).withMessage("isActive should be a boolean")
+        .isString().withMessage("Image should be string")
 ];
 
 const validateUpdateProduct = [
@@ -27,7 +24,7 @@ const validateUpdateProduct = [
         .isString().withMessage("Title should be string"),
     body("price")
         .optional()
-        .isString().withMessage("Price should be string"),
+        .isNumeric().withMessage("Price should be numeric"),
     body("description")
         .optional()
         .isString().withMessage("Description should be string"),
